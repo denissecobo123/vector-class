@@ -45,9 +45,10 @@ class Vector:
         """ Unary minus support """
         return Vector(-self.x, -self.y)
 
-    def __sub__(self, other):
-        """ Returns component-wise difference as a Vector """
-        return self + -other
+    def __sub__(self,other):
+   x_sub=self.x - other.x
+   y_sub=self.y - other.y
+   return Vector(x_sub,y_sub)
 
     def pol_angle(self, degrees=True):
         """ Returns the plane-polar angle in degrees unless degrees=False """
