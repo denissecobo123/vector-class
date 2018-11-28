@@ -19,11 +19,11 @@ class Vector:
 
     def __ne__(self, other):
         return not self == other
-
     def __abs__(self):
         """ Returns L2 (Euclidean) Norm """
-        return math.sqrt(self.x ** 2 + self.y ** 2)
-
+        self.components = self.components
+        return math.sqrt(sum([c**2 for c in self.components]))
+    
     def __bool__(self):
         return bool(abs(self))
 
@@ -33,9 +33,9 @@ class Vector:
         sum_y = self.y + other.y
         return Vector(sum_x, sum_y)
 
-    def __mul__(self, other):
+    def __mul__(self, components):
         """ Returns dot product """
-        return self.x*other.x + self.y*other.y
+        return self.x * components.x + self.y * components.y
 
     def __rmul__(self, other):
         """ Supports (left) scalar multiplication """
